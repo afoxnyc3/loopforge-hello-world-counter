@@ -1,0 +1,189 @@
+/* =============================================
+   CSS Custom Properties — Dark Theme
+   ============================================= */
+:root {
+  --bg-primary: #0f0f13;
+  --bg-card: #1a1a24;
+  --bg-card-border: #2e2e42;
+  --text-primary: #f0f0f5;
+  --text-secondary: #9090a8;
+  --accent: #6c63ff;
+  --accent-hover: #857dff;
+  --accent-active: #5a53e0;
+  --reset: #3a3a4e;
+  --reset-hover: #4e4e68;
+  --reset-active: #2e2e42;
+  --counter-color: #ffffff;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-btn: 0 4px 16px rgba(108, 99, 255, 0.35);
+  --radius-card: 20px;
+  --radius-btn: 12px;
+  --transition: 0.18s ease;
+}
+
+/* =============================================
+   Reset & Base
+   ============================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* =============================================
+   Layout
+   ============================================= */
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.counter-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--bg-card-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow);
+  padding: 3rem 2.5rem;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+  text-align: center;
+}
+
+/* =============================================
+   Title
+   ============================================= */
+.app-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* =============================================
+   Counter Display
+   ============================================= */
+.counter-display-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 7rem;
+}
+
+.counter-display {
+  font-size: clamp(4rem, 15vw, 7rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--counter-color);
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  transition: transform var(--transition), color var(--transition);
+  display: inline-block;
+}
+
+.counter-display.bump {
+  transform: scale(1.12);
+  color: var(--accent-hover);
+}
+
+/* =============================================
+   Buttons
+   ============================================= */
+.increment-btn,
+.reset-btn {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: var(--radius-btn);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition:
+    background-color var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
+  outline: none;
+}
+
+.increment-btn {
+  background-color: var(--accent);
+  color: #ffffff;
+  box-shadow: var(--shadow-btn);
+}
+
+.increment-btn:hover {
+  background-color: var(--accent-hover);
+  box-shadow: 0 6px 20px rgba(108, 99, 255, 0.5);
+}
+
+.increment-btn:active {
+  background-color: var(--accent-active);
+  transform: scale(0.97);
+  box-shadow: none;
+}
+
+.increment-btn:focus-visible {
+  outline: 2px solid var(--accent-hover);
+  outline-offset: 3px;
+}
+
+.reset-btn {
+  background-color: var(--reset);
+  color: var(--text-secondary);
+  box-shadow: none;
+}
+
+.reset-btn:hover {
+  background-color: var(--reset-hover);
+  color: var(--text-primary);
+}
+
+.reset-btn:active {
+  background-color: var(--reset-active);
+  transform: scale(0.97);
+}
+
+.reset-btn:focus-visible {
+  outline: 2px solid var(--text-secondary);
+  outline-offset: 3px;
+}
+
+/* =============================================
+   Responsive — Mobile
+   ============================================= */
+@media (max-width: 480px) {
+  .counter-card {
+    padding: 2.25rem 1.5rem;
+    gap: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .app-title {
+    font-size: 1rem;
+  }
+}
